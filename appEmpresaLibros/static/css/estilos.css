@@ -14,59 +14,442 @@ body {
     margin: 0 auto;
 }
 
-/* Lista de Editoriales */
-.editorial-list-container {
-    padding: 40px 0;
+/* Estilo del contenedor de la lista de libros */
+.book-list-container {
+    padding: 20px 0;
     background-color: #f5f5f5;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #2C3E50;
+    margin-bottom: 20px;
+    font-weight: 600;
     text-align: center;
+}
+
+/* Diseño de las tarjetas de libros */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px); 
+}
+
+/* Imagen del libro */
+.book-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Nombre del libro */
+.book-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+.book-name a {
+    text-decoration: none;
+    color: #2C3E50;
+    transition: color 0.3s ease;
+}
+
+.book-name a:hover {
+    color: #3498DB; 
+}
+
+/* ISBN */
+.book-isbn {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Lista de autores */
+.authors-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.authors-list li {
+    font-size: 1rem;
+}
+
+.author-link {
+    color: #3498DB;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.author-link:hover {
+    color: #2C3E50;
+}
+
+/* Estilos para las editoriales */
+.editoriales {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crear dos columnas */
+    gap: 20px; /* Espacio entre las columnas */
+    margin-top: 20px;
+}
+
+/* Estilo para cada editorial */
+.editorial {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.editorial img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordes redondeados para la imagen */
 }
 
 /* Estilo de la tabla */
 .editorial-table {
     width: 100%;
-    margin: 0 auto;
+    margin: 20px 0;
     border-collapse: collapse;
     background-color: #fff;
-    max-width: 1200px; /* Ancho máximo ajustado */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Encabezados de la tabla */
 .editorial-table th, .editorial-table td {
-    border: 1px solid #ddd;
-    padding: 20px;
-    vertical-align: middle; /* Alineación vertical centrada */
-    text-align: center; /* Alineación horizontal centrada */
-    font-size: 1.1rem; /* Tamaño de fuente para mejor legibilidad */
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 
-/* Estilo para los encabezados */
 .editorial-table th {
     background-color: #2C3E50;
     color: white;
     font-weight: 600;
-    font-size: 1.2rem; /* Aumentar tamaño de fuente para los encabezados */
 }
 
-/* Estilo para las celdas de la tabla */
-.editorial-table td {
+.editorial-table tr:nth-child(even) {
     background-color: #f9f9f9;
-    font-size: 1rem;
 }
 
-/* Enlaces en las celdas */
+.editorial-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Logo de la editorial */
+.editorial-logo {
+    max-width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Enlaces */
 .editorial-link {
+    color: #3498DB;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.editorial-link:hover {
     color: #2C3E50;
+}
+
+.author-list-container {
+    padding: 20px 0;
+    background-color: #f5f5f5;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #2C3E50;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Diseño de las tarjetas de autores usando flexbox */
+.author-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+}
+
+.author-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+}
+
+.author-card:hover {
+    transform: translateY(-5px); 
+}
+
+/* Foto del autor */
+.author-photo {
+    max-width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Nombre del autor */
+.author-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+.author-name a {
+    text-decoration: none;
+    color: #2C3E50;
+    transition: color 0.3s ease;
+}
+
+.author-name a:hover {
+    color: #3498DB; 
+}
+
+/* País del autor */
+.author-country {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Estilo para el contenedor de detalles del autor */
+.author-detail-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado con el nombre y foto del autor */
+.author-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.author-header h2 {
+    font-size: 2rem;
+    color: #2C3E50;
+    font-weight: 600;
+}
+
+.author-photo {
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Información del autor */
+.author-info {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.author-info p {
+    margin-bottom: 10px;
+}
+
+.author-info strong {
+    color: #2C3E50;
+}
+
+/* Estilo para la lista de libros */
+.book-list {
+    list-style: none;
+    padding: 0;
+}
+
+.book-list li {
+    margin: 5px 0;
+}
+
+.book-list a {
+    color: #3498DB;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.book-list a:hover {
+    color: #2C3E50;
+}
+
+/* Estilo para el contenedor de detalles de la editorial */
+.editorial-detail-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado con el nombre y foto de la editorial */
+.editorial-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.editorial-header h2 {
+    font-size: 2rem;
+    color: #2C3E50;
+    font-weight: 600;
+}
+
+.editorial-photo {
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Información de la editorial */
+.editorial-info {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.editorial-info p {
+    margin-bottom: 10px;
+}
+
+.editorial-info strong {
+    color: #2C3E50;
+}
+
+/* Estilo para la lista de libros */
+.book-list {
+    list-style: none;
+    padding: 0;
+}
+
+.book-list li {
+    margin: 5px 0;
+}
+
+.book-list a {
+    color: #3498DB;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.book-list a:hover {
+    color: #2C3E50;
+}
+
+/* Contenedor principal de los detalles del libro */
+.book-detail-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el encabezado con el nombre del libro y su foto */
+.book-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.book-header h2 {
+    font-size: 2rem;
+    color: #2C3E50;
+    font-weight: 600;
+}
+
+.book-photo {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Estilo para la información del libro */
+.book-info {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.book-info p {
+    margin-bottom: 10px;
+}
+
+.book-info strong {
+    color: #2C3E50;
+}
+
+/* Estilo para la lista de autores */
+.author-list {
+    list-style: none;
+    padding: 0;
+}
+
+.author-list li {
+    margin: 5px 0;
+}
+
+.author-list a {
+    color: #3498DB;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.author-list a:hover {
+    color: #2C3E50;
+}
+
+/* Estilo para el enlace de la editorial */
+.editorial-link {
+    color: #3498DB;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .editorial-link:hover {
-    color: #3498DB;
-    text-decoration: underline;
+    color: #2C3E50;
 }
 
-/* Título de la página */
+/* Estilos del título */
 h2 {
     font-size: 2rem;
     color: #2C3E50;
@@ -74,36 +457,5 @@ h2 {
     font-weight: 600;
 }
 
-/* Footer */
-.footer {
-    background-color: #2C3E50;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
 
-.footer p {
-    margin: 5px 0;
-    font-size: 14px;
-}
 
-/* Responsividad: Ajustar la tabla en pantallas pequeñas */
-@media (max-width: 768px) {
-    .editorial-table th, .editorial-table td {
-        padding: 12px;
-    }
-
-    .editorial-table {
-        font-size: 1rem; /* Ajustar el tamaño de la fuente */
-    }
-}
-
-@media (max-width: 480px) {
-    .editorial-table {
-        font-size: 0.9rem; /* Reducir aún más el tamaño de la fuente en pantallas muy pequeñas */
-    }
-
-    .editorial-table th, .editorial-table td {
-        padding: 8px; /* Reducir el padding para pantallas más pequeñas */
-    }
-}

@@ -3,19 +3,26 @@
 {% block titulo %}Detalles del Autor - {{ autor.nombre }}{% endblock %}
 
 {% block contenido %}
-    <h2>{{ autor.nombre }}</h2>
-    <p><strong>País:</strong> {{ autor.pais }}</p>
-    <p><strong>Género literario:</strong> {{ autor.genero_literario }}</p>
-    <p><strong>Libros publicados:</strong>
-        <ul>
-            {% for libro in autor.libros.all %}
-                <li>
-                    <a href="{% url 'libro_detail' libro.id %}">{{ libro.nombre }}</a> - ISBN: {{ libro.isbn }}
-                </li>
-            {% endfor %}
-        </ul>
-    </p>
-    {% if autor.foto %}
-        <img src="{{ autor.foto.url }}" alt="{{ autor.nombre }}" width="200">
-    {% endif %}
+    <div class="author-detail-container">
+        <div class="author-header">
+            <h2>{{ autor.nombre }}</h2>
+            {% if autor.foto %}
+                <img src="{{ autor.foto.url }}" alt="{{ autor.nombre }}" class="author-photo">
+            {% endif %}
+        </div>
+        
+        <div class="author-info">
+            <p><strong>País:</strong> {{ autor.pais }}</p>
+            <p><strong>Género literario:</strong> {{ autor.genero_literario }}</p>
+            
+            <h3>Libros publicados:</h3>
+            <ul class="book-list">
+                {% for libro in autor.libros.all %}
+                    <li>
+                        <a href="{% url 'libro_detail' libro.id %}">{{ libro.nombre }}</a> - ISBN: {{ libro.isbn }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}

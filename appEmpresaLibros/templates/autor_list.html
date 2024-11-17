@@ -5,26 +5,25 @@
 {% block contenido %}
     <div class="author-list-container">
         <h2>Lista de Autores</h2>
-        <table class="author-table">
-            <thead>
-                <tr>
-                    <th>Foto</th>
-                    <th>Nombre</th>
-                    <th>País</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for autor in autores %}
-                    <tr>
-                        <td>    
-                            {% if autor.foto %}
-                            <img src="{{ autor.foto.url }}" alt="{{ autor.nombre }}" width="200">
-                            {% endif %}</td>
-                        <td><a href="{% url 'autor_detail' autor.id %}" class="author-link">{{ autor.nombre }}</a></td>
-                        <td>{{ autor.pais }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="author-grid">
+            {% for autor in autores %}
+                <div class="author-card">
+                    <!-- Foto del autor -->
+                    {% if autor.foto %}
+                        <img src="{{ autor.foto.url }}" alt="{{ autor.nombre }}" class="author-photo">
+                    {% endif %}
+                    
+                    <!-- Nombre del autor -->
+                    <h3 class="author-name">
+                        <a href="{% url 'autor_detail' autor.id %}" class="author-link">
+                            {{ autor.nombre }}
+                        </a>
+                    </h3>
+
+                    <!-- País del autor -->
+                    <p class="author-country">{{ autor.pais }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

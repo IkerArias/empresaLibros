@@ -3,19 +3,26 @@
 {% block titulo %}Detalles de la Editorial - {{ editorial.nombre }}{% endblock %}
 
 {% block contenido %}
-    <h2>{{ editorial.nombre }}</h2>
-    <p><strong>País:</strong> {{ editorial.pais }}</p>
-    <p><strong>Año de creación:</strong> {{ editorial.año_creacion }}</p>
-    <p><strong>Libros publicados:</strong>
-        <ul>
-            {% for libro in editorial.libros.all %}
-                <li>
-                    <a href="{% url 'libro_detail' libro.id %}">{{ libro.nombre }}</a> - ISBN: {{ libro.isbn }}
-                </li>
-            {% endfor %}
-        </ul>
-    </p>
-    {% if editorial.foto %}
-        <img src="{{ editorial.foto.url }}" alt="{{ editorial.nombre }}" width="200">
-    {% endif %}
+    <div class="editorial-detail-container">
+        <div class="editorial-header">
+            <h2>{{ editorial.nombre }}</h2>
+            {% if editorial.foto %}
+                <img src="{{ editorial.foto.url }}" alt="{{ editorial.nombre }}" class="editorial-photo">
+            {% endif %}
+        </div>
+        
+        <div class="editorial-info">
+            <p><strong>País:</strong> {{ editorial.pais }}</p>
+            <p><strong>Año de creación:</strong> {{ editorial.año_creacion }}</p>
+            
+            <h3>Libros publicados:</h3>
+            <ul class="book-list">
+                {% for libro in editorial.libros.all %}
+                    <li>
+                        <a href="{% url 'libro_detail' libro.id %}">{{ libro.nombre }}</a> - ISBN: {{ libro.isbn }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}

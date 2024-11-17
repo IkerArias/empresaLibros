@@ -3,22 +3,29 @@
 {% block titulo %}Detalles del Libro - {{ libro.nombre }}{% endblock %}
 
 {% block contenido %}
-    <h2>{{ libro.nombre }}</h2>
-    <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
-    <p><strong>Año de lanzamiento:</strong> {{ libro.año_lanzamiento }}</p>
-    <p><strong>Editorial:</strong> 
-        <a href="{% url 'editorial_detail' libro.editorial.id %}">{{ libro.editorial.nombre }}</a>
-    </p>
-    <p><strong>Autores:</strong>
-        <ul>
-            {% for autor in libro.autores.all %}
-                <li>
-                    <a href="{% url 'autor_detail' autor.id %}">{{ autor.nombre }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </p>
-    {% if libro.foto %}
-        <img src="{{ libro.foto.url }}" alt="{{ libro.nombre }}" width="200">
-    {% endif %}
+    <div class="book-detail-container">
+        <div class="book-header">
+            <h2>{{ libro.nombre }}</h2>
+            {% if libro.foto %}
+                <img src="{{ libro.foto.url }}" alt="{{ libro.nombre }}" class="book-photo">
+            {% endif %}
+        </div>
+
+        <div class="book-info">
+            <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
+            <p><strong>Año de lanzamiento:</strong> {{ libro.año_lanzamiento }}</p>
+            <p><strong>Editorial:</strong> 
+                <a href="{% url 'editorial_detail' libro.editorial.id %}" class="editorial-link">{{ libro.editorial.nombre }}</a>
+            </p>
+            <p><strong>Autores:</strong>
+                <ul class="author-list">
+                    {% for autor in libro.autores.all %}
+                        <li>
+                            <a href="{% url 'autor_detail' autor.id %}" class="author-link">{{ autor.nombre }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </p>
+        </div>
+    </div>
 {% endblock %}
