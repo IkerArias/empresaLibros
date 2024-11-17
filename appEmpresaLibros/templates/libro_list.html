@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titulo %}Lista de Libros - Book Store{% endblock %}
+
+{% block contenido %}
+    <h2>Lista de Libros</h2>
+    <ul>
+        {% for libro in libros %}
+            <li>
+                <a href="{% url 'libro_detail' libro.id %}">{{ libro.nombre }}</a> - ISBN: {{ libro.isbn }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

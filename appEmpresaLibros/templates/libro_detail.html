@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block titulo %}Detalles del Libro - {{ libro.nombre }}{% endblock %}
+
+{% block contenido %}
+    <h2>{{ libro.nombre }}</h2>
+    <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
+    <p><strong>Año de lanzamiento:</strong> {{ libro.año_lanzamiento }}</p>
+    <p><strong>Editorial:</strong> {{ libro.editorial.nombre }}</p>
+    <p><strong>Autores:</strong>
+        <ul>
+            {% for autor in libro.autores.all %}
+                <li>{{ autor.nombre }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    {% if libro.foto %}
+        <img src="{{ libro.foto.url }}" alt="{{ libro.nombre }}" width="200">
+    {% endif %}
+{% endblock %}

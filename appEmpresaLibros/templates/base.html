@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{estilos.css'}">
+    <title>{% block titulo %}Book Store{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Book Store</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'libro_list' %}">Libros</a></li>
+                <li><a href="{% url 'editorial_list' %}">Editoriales</a></li>
+                <li><a href="{% url 'autor_list' %}">Autores</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="content">
+        {% block contenido %}{% endblock %}
+    </div>
+    <footer>
+        <p>&copy; Tienda de Libros Ingenieria Web</p>
+    </footer>
+</body>
+</html>

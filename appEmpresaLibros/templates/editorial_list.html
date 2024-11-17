@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titulo %}Lista de Editoriales - Book Store{% endblock %}
+
+{% block contenido %}
+    <h2>Lista de Editoriales</h2>
+    <ul>
+        {% for editorial in editoriales %}
+            <li>
+                <a href="{% url 'editorial_detail' editorial.id %}">{{ editorial.nombre }}</a> - País: {{ editorial.pais }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

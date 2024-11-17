@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block titulo %}Portada - Book Store{% endblock %}
+
+{% block contenido %}
+    <h2>Portada de Book Store</h2>
+    <div class="editoriales">
+        {% for nombre, libro in recientes_por_editorial.items %}
+            <div class="editorial">
+                <h3>{{ nombre }}</h3>
+                <p>Libro más reciente: <strong>{{ libro.nombre }}</strong></p>
+                <img src="{{ libro.foto.url }}" alt="{{ libro.nombre }}" width="150">
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

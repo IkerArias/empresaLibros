@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titulo %}Detalles de la Editorial - {{ editorial.nombre }}{% endblock %}
+
+{% block contenido %}
+    <h2>{{ editorial.nombre }}</h2>
+    <p><strong>País:</strong> {{ editorial.pais }}</p>
+    <p><strong>Año de creación:</strong> {{ editorial.año_creacion }}</p>
+    <p><strong>Libros publicados:</strong>
+        <ul>
+            {% for libro in editorial.libros.all %}
+                <li>{{ libro.nombre }} - ISBN: {{ libro.isbn }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    {% if editorial.foto %}
+        <img src="{{ editorial.foto.url }}" alt="{{ editorial.nombre }}" width="200">
+    {% endif %}
+{% endblock %}
