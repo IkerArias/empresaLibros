@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <!-- Asegúrate de que el enlace al CSS sea procesado por Django -->
+
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>{% block titulo %}Book Store{% endblock %}</title>
@@ -19,7 +19,7 @@
             display: flex;
             flex-direction: column; 
         }
-
+    
         .header {
             background-color: #273849;
             color: #fff;
@@ -27,17 +27,26 @@
             padding: 20px 0;
             border-bottom: 2px solid #FFD700;
         }
-
+    
         .logo {
             font-size: 2rem;
             margin: 0;
             font-weight: 700;
         }
-
+    
+        .home-link {
+            color: #fff;
+            text-decoration: none;
+        }
+    
+        .home-link:hover {
+            color: #FFD700; 
+        }
+    
         .navbar {
             margin-top: 10px;
         }
-
+    
         .nav-list {
             list-style: none;
             padding: 0;
@@ -46,7 +55,7 @@
             justify-content: center;
             gap: 15px;
         }
-
+    
         .nav-item .nav-link {
             text-decoration: none;
             color: #FFD700;
@@ -54,17 +63,17 @@
             font-size: 1rem;
             transition: color 0.3s;
         }
-
+    
         .nav-item .nav-link:hover {
             color: #fff;
         }
-
+    
         .main-content {
             padding: 20px;
             background: #fff;
             flex-grow: 1; 
         }
-
+    
         .footer {
             text-align: center;
             padding: 10px 0;
@@ -73,12 +82,12 @@
             font-size: 0.9rem;
         }
     </style>
+    
 </head>
 <body>
     <header class="header">
         <h1 class="logo">
-            <!-- Asegúrate de que las URLs sean procesadas correctamente por Django -->
-            <a href="{% url 'portada' %}" class="home-link">📚 Book Store</a>
+            <a href="{% url 'portada' %}" class="home-link">📚 Book Store 📚</a>
         </h1>
         <nav class="navbar">
             <ul class="nav-list">
