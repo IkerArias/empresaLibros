@@ -3,12 +3,56 @@
 {% block titulo %}Lista de Libros - Book Store{% endblock %}
 
 {% block contenido %}
-    <h2>Lista de Libros</h2>
-    <ul>
-        {% for libro in libros %}
-            <li>
-                <a href="{% url 'libro_detail' libro.id %}">{{ libro.nombre }}</a> - ISBN: {{ libro.isbn }}
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="book-list-container">
+        <h2>Lista de Libros</h2>
+        <table class="book-table">
+            <thead>
+                <tr>
+                    <th>Portada</th>
+                    <th>Nombre</th>
+                    <th>ISBN</th>
+                    <th>Autores</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for libro in libros %}
+                    <tr>
+                        <!-- Columna de imagen -->
+                        <td>
+                            {% if libro.foto %}
+                                <a href="{% url 'libro_detail' libro.id %}" class="book-card-link">
+                                    <img src="{{ libro.foto.url }}" alt="{{ libro.nombre }}" class="book-image" width="200">
+                                </a>
+                            {% endif %}
+                        </td>
+
+                        <!-- Columna de nombre del libro -->
+                        <td>
+                            <a href="{% url 'libro_detail' libro.id %}" class="book-card-link">
+                                {{ libro.nombre }}
+                            </a>
+                        </td>
+
+                        <!-- Columna de ISBN -->
+                        <td>
+                            {{ libro.isbn }}
+                        </td>
+
+                        <!-- Columna de autores -->
+                        <td>
+                            <ul class="authors-list">
+                                {% for autor in libro.autores.all %}
+                                    <li>
+                                        <a href="{% url 'autor_detail' autor.id %}" class="author-link">
+                                            {{ autor.nombre }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

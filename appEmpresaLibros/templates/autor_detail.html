@@ -9,7 +9,9 @@
     <p><strong>Libros publicados:</strong>
         <ul>
             {% for libro in autor.libros.all %}
-                <li>{{ libro.nombre }} - ISBN: {{ libro.isbn }}</li>
+                <li>
+                    <a href="{% url 'libro_detail' libro.id %}">{{ libro.nombre }}</a> - ISBN: {{ libro.isbn }}
+                </li>
             {% endfor %}
         </ul>
     </p>

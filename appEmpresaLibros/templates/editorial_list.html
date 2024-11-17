@@ -3,12 +3,29 @@
 {% block titulo %}Lista de Editoriales - Book Store{% endblock %}
 
 {% block contenido %}
-    <h2>Lista de Editoriales</h2>
-    <ul>
-        {% for editorial in editoriales %}
-            <li>
-                <a href="{% url 'editorial_detail' editorial.id %}">{{ editorial.nombre }}</a> - País: {{ editorial.pais }}
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="editorial-list-container">
+        <h2>Lista de Editoriales</h2>
+        <table class="editorial-table">
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Nombre</th>
+                    <th>País</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for editorial in editoriales %}
+                    <tr>
+                        <td>
+                            {% if editorial.foto %}
+                            <img src="{{ editorial.foto.url }}" alt="{{ editorial.nombre }}" width="200">
+                            {% endif %}
+                        </td>
+                        <td><a href="{% url 'editorial_detail' editorial.id %}" class="editorial-link">{{ editorial.nombre }}</a></td>
+                        <td>{{ editorial.pais }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

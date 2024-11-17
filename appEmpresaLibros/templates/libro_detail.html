@@ -6,11 +6,15 @@
     <h2>{{ libro.nombre }}</h2>
     <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
     <p><strong>Año de lanzamiento:</strong> {{ libro.año_lanzamiento }}</p>
-    <p><strong>Editorial:</strong> {{ libro.editorial.nombre }}</p>
+    <p><strong>Editorial:</strong> 
+        <a href="{% url 'editorial_detail' libro.editorial.id %}">{{ libro.editorial.nombre }}</a>
+    </p>
     <p><strong>Autores:</strong>
         <ul>
             {% for autor in libro.autores.all %}
-                <li>{{ autor.nombre }}</li>
+                <li>
+                    <a href="{% url 'autor_detail' autor.id %}">{{ autor.nombre }}</a>
+                </li>
             {% endfor %}
         </ul>
     </p>

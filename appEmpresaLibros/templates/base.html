@@ -3,25 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{estilos.css'}">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>{% block titulo %}Book Store{% endblock %}</title>
+    <style>
+        /* Estilos en línea para centrado del título */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #273849;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #FFD700;
+        }
+        .logo {
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        .navbar {
+            margin-top: 10px;
+        }
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .nav-item .nav-link {
+            text-decoration: none;
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .nav-item .nav-link:hover {
+            color: #fff;
+        }
+        .main-content {
+            padding: 20px;
+            background: #fff;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #2C3E50;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Book Store</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'libro_list' %}">Libros</a></li>
-                <li><a href="{% url 'editorial_list' %}">Editoriales</a></li>
-                <li><a href="{% url 'autor_list' %}">Autores</a></li>
+    <header class="header">
+        <h1 class="logo">
+            <a href="{% url 'portada' %}" class="home-link">📚 Book Store</a>
+        </h1>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="{% url 'libro_list' %}" class="nav-link">Libros</a></li>
+                <li class="nav-item"><a href="{% url 'editorial_list' %}" class="nav-link">Editoriales</a></li>
+                <li class="nav-item"><a href="{% url 'autor_list' %}" class="nav-link">Autores</a></li>
             </ul>
         </nav>
-    </header>
-    <div id="content">
-        {% block contenido %}{% endblock %}
-    </div>
-    <footer>
-        <p>&copy; Tienda de Libros Ingenieria Web</p>
+    </header>    
+    <main class="main-content">
+        <div class="container">
+            {% block contenido %}{% endblock %}
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Tienda de Libros | Diseñado con esfuerzo</p>
+        </div>
     </footer>
 </body>
 </html>

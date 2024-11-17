@@ -3,12 +3,28 @@
 {% block titulo %}Lista de Autores - Book Store{% endblock %}
 
 {% block contenido %}
-    <h2>Lista de Autores</h2>
-    <ul>
-        {% for autor in autores %}
-            <li>
-                <a href="{% url 'autor_detail' autor.id %}">{{ autor.nombre }}</a> - País: {{ autor.pais }}
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="author-list-container">
+        <h2>Lista de Autores</h2>
+        <table class="author-table">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>País</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for autor in autores %}
+                    <tr>
+                        <td>    
+                            {% if autor.foto %}
+                            <img src="{{ autor.foto.url }}" alt="{{ autor.nombre }}" width="200">
+                            {% endif %}</td>
+                        <td><a href="{% url 'autor_detail' autor.id %}" class="author-link">{{ autor.nombre }}</a></td>
+                        <td>{{ autor.pais }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

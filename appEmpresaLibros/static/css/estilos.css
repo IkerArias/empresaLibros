@@ -1,44 +1,109 @@
-
+/* General */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Lista de Editoriales */
+.editorial-list-container {
+    padding: 40px 0;
+    background-color: #f5f5f5;
     text-align: center;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-#content {
-    padding: 20px;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;
-    color: white;
-    position: fixed;
+/* Estilo de la tabla */
+.editorial-table {
     width: 100%;
-    bottom: 0;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    max-width: 1200px; /* Ancho máximo ajustado */
 }
 
+/* Encabezados de la tabla */
+.editorial-table th, .editorial-table td {
+    border: 1px solid #ddd;
+    padding: 20px;
+    vertical-align: middle; /* Alineación vertical centrada */
+    text-align: center; /* Alineación horizontal centrada */
+    font-size: 1.1rem; /* Tamaño de fuente para mejor legibilidad */
+}
+
+/* Estilo para los encabezados */
+.editorial-table th {
+    background-color: #2C3E50;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem; /* Aumentar tamaño de fuente para los encabezados */
+}
+
+/* Estilo para las celdas de la tabla */
+.editorial-table td {
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+/* Enlaces en las celdas */
+.editorial-link {
+    color: #2C3E50;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.editorial-link:hover {
+    color: #3498DB;
+    text-decoration: underline;
+}
+
+/* Título de la página */
+h2 {
+    font-size: 2rem;
+    color: #2C3E50;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    background-color: #2C3E50;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Responsividad: Ajustar la tabla en pantallas pequeñas */
+@media (max-width: 768px) {
+    .editorial-table th, .editorial-table td {
+        padding: 12px;
+    }
+
+    .editorial-table {
+        font-size: 1rem; /* Ajustar el tamaño de la fuente */
+    }
+}
+
+@media (max-width: 480px) {
+    .editorial-table {
+        font-size: 0.9rem; /* Reducir aún más el tamaño de la fuente en pantallas muy pequeñas */
+    }
+
+    .editorial-table th, .editorial-table td {
+        padding: 8px; /* Reducir el padding para pantallas más pequeñas */
+    }
+}
