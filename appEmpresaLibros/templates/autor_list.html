@@ -7,22 +7,20 @@
         <div class="author-grid">
             {% for autor in autores %}
                 <div class="author-card">
-                    <!-- Foto del autor -->
                     {% if autor.foto %}
                         <img src="{{ autor.foto.url }}" alt="{{ autor.nombre }}" class="author-photo">
                     {% endif %}
                     
-                    <!-- Nombre del autor -->
                     <h3 class="author-name">
                         <a href="{% url 'autor_detail' autor.id %}" class="author-link">
                             {{ autor.nombre }}
                         </a>
                     </h3>
 
-                    <!-- País del autor -->
                     <p class="author-country">{{ autor.pais }}</p>
                 </div>
             {% endfor %}
         </div>
     </div>
 {% endblock %}
+</html>
