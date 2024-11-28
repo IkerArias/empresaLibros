@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block titulo %}Crear Libro - Book Store{% endblock %}
+
+{% block contenido %}
+  <h2>Crear un Nuevo Libro</h2>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div>
+      <label for="{{ form.nombre.id_for_label }}">Nombre del Libro:</label>
+      {{ form.nombre }}
+      {% if form.nombre.errors %}
+        <div class="errors">
+          {% for error in form.nombre.errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div>
+      <label for="{{ form.isbn.id_for_label }}">ISBN:</label>
+      {{ form.isbn }}
+      {% if form.isbn.errors %}
+        <div class="errors">
+          {% for error in form.isbn.errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div>
+      <label for="{{ form.año_lanzamiento.id_for_label }}">Año de Lanzamiento:</label>
+      {{ form.año_lanzamiento }}
+    </div>
+
+    <div>
+      <label for="{{ form.foto.id_for_label }}">Portada:</label>
+      {{ form.foto }}
+    </div>
+
+    <div>
+      <label for="{{ form.editorial.id_for_label }}">Editorial:</label>
+      {{ form.editorial }}
+    </div>
+
+    <div>
+      <label for="{{ form.autores.id_for_label }}">Autores:</label>
+      {{ form.autores }}
+    </div>
+
+    <button type="submit">Guardar</button>
+  </form>
+{% endblock %}

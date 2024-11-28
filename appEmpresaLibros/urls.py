@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import LibroCreateView
 
 urlpatterns = [
     path('', views.portada_view, name='portada'),
@@ -9,4 +10,6 @@ urlpatterns = [
     path('editorial/<int:editorial_id>/', views.editorial_detail_view, name='editorial_detail'),
     path('autores/', views.autor_list_view, name='autor_list'),
     path('autor/<int:autor_id>/', views.autor_detail_view, name='autor_detail'),
+    path('libros/nuevo/', LibroCreateView.as_view(), name='libro_create'),
+    path('crear-libro/', views.crear_libro_view, name='crear_libro'),
 ]
