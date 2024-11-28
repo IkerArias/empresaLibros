@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 {% block titulo %}Lista de Libros - Book Store{% endblock %}
@@ -6,24 +5,34 @@
 {% block contenido %}
     <div class="book-list-container">
         <h2>Lista de Libros</h2>
+
+        <!-- Mostrar mensaje de búsqueda si existe -->
+        {% if search_query %}
+            <p>Resultados de búsqueda para: <strong>{{ search_query }}</strong></p>
+        {% endif %}
+
+        <!-- Mostrar los libros filtrados -->
         <div class="book-grid">
             {% for libro in libros %}
                 <div class="book-card">
+                    <!-- Portada del libro -->
                     {% if libro.foto %}
                         <a href="{% url 'libro_detail' libro.id %}" class="book-card-link">
                             <img src="{{ libro.foto.url }}" alt="{{ libro.nombre }}" class="book-image">
                         </a>
                     {% endif %}
 
+                    <!-- Nombre del libro -->
                     <h3 class="book-name">
                         <a href="{% url 'libro_detail' libro.id %}" class="book-card-link">
                             {{ libro.nombre }}
                         </a>
                     </h3>
 
+                    <!-- ISBN -->
                     <p class="book-isbn">ISBN: {{ libro.isbn }}</p>
 
-                  
+                    <!-- Autores -->
                     <ul class="authors-list">
                         {% for autor in libro.autores.all %}
                             <li>
@@ -34,6 +43,8 @@
                         {% endfor %}
                     </ul>
                 </div>
+            {% empty %}
+                <p>No se encontraron libros que coincidan con tu búsqueda.</p>
             {% endfor %}
         </div>
     </div>

@@ -95,6 +95,12 @@
                 <li class="nav-item"><a href="{% url 'autor_list' %}" class="nav-link">Autores</a></li>
             </ul>
         </nav>
+        <div class="search-bar-container">
+            <form method="GET" action="{% url 'libro_list' %}">
+                <input type="text" name="search" placeholder="Buscar libros..." value="{{ request.GET.search }}">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
     </header>    
     <main class="main-content">
         <div class="container">

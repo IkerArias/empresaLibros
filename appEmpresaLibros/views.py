@@ -13,8 +13,21 @@ def portada_view(request):
 
 # Vista de la lista de libros
 def libro_list_view(request):
+    
     libros = Libro.objects.all()
-    return render(request, 'libro_list.html', {'libros': libros})
+
+    
+    search_query = request.GET.get('search', '')  
+
+   
+    if search_query:
+        libros = libros.filter(nombre__icontains=search_query)  
+
+    
+    return render(request, 'libro_list.html', {
+        'libros': libros,
+        'search_query': search_query,  
+    })
 
 # Vista de detalles de un libro
 def libro_detail_view(request, libro_id):
