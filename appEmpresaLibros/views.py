@@ -4,6 +4,8 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from .models import Libro
 from .forms import LibroForm
+from django.shortcuts import render, redirect
+from .forms import LibroForm
 
 # Vista de la portada de "Book Store"
 def portada_view(request):
