@@ -26,8 +26,12 @@ SECRET_KEY = 'django-insecure-mha8far1am(l&8yu&aw4rs3^(9h=7y1+)g34!m!kqj$c^n)-f8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
 
 # Application definition
 
