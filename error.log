@@ -1,0 +1,308 @@
+Internal Server Error: /admin/auth/user/add/
+Traceback (most recent call last):
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\utils\module_loading.py", line 16, in cached_import
+    return getattr(module, class_name)
+AttributeError: module 'django.contrib.auth.password_validation' has no attribute 'UserUniqueValidator'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 29, in get_password_validators
+    klass = import_string(validator["NAME"])
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\utils\module_loading.py", line 32, in import_string
+    raise ImportError(
+    ...<2 lines>...
+    ) from err
+ImportError: Module "django.contrib.auth.password_validation" does not define a "UserUniqueValidator" attribute/class
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    values = list(values)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\admin\helpers.py", line 158, in __iter__
+    yield AdminField(self.form, field, is_first=(i == 0))
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\admin\helpers.py", line 172, in __init__
+    self.field = form[field]  # A django.forms.BoundField instance
+                 ~~~~^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\forms\forms.py", line 185, in __getitem__
+    self._bound_fields_cache[name] = field.get_bound_field(self, name)
+                                     ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\forms\fields.py", line 254, in get_bound_field
+    return BoundField(form, self, field_name)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\forms\boundfield.py", line 27, in __init__
+    self.help_text = field.help_text or ""
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\utils\functional.py", line 187, in __wrapper__
+    result = func(*self._args, **self._kw)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 89, in _password_validators_help_text_html
+    help_texts = password_validators_help_texts(password_validators)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 78, in password_validators_help_texts
+    password_validators = get_default_password_validators()
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 22, in get_default_password_validators
+    return get_password_validators(settings.AUTH_PASSWORD_VALIDATORS)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 35, in get_password_validators
+    raise ImproperlyConfigured(msg % validator["NAME"])
+django.core.exceptions.ImproperlyConfigured: The module in NAME could not be imported: django.contrib.auth.password_validation.UserUniqueValidator. Check your AUTH_PASSWORD_VALIDATORS setting.
+"GET /admin/auth/user/add/ HTTP/1.1" 500 37418
+Internal Server Error: /admin/auth/user/add/
+Traceback (most recent call last):
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\utils\module_loading.py", line 16, in cached_import
+    return getattr(module, class_name)
+AttributeError: module 'django.contrib.auth.password_validation' has no attribute 'UserUniqueValidator'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 29, in get_password_validators
+    klass = import_string(validator["NAME"])
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\utils\module_loading.py", line 32, in import_string
+    raise ImportError(
+    ...<2 lines>...
+    ) from err
+ImportError: Module "django.contrib.auth.password_validation" does not define a "UserUniqueValidator" attribute/class
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    values = list(values)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\admin\helpers.py", line 158, in __iter__
+    yield AdminField(self.form, field, is_first=(i == 0))
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\admin\helpers.py", line 172, in __init__
+    self.field = form[field]  # A django.forms.BoundField instance
+                 ~~~~^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\forms\forms.py", line 185, in __getitem__
+    self._bound_fields_cache[name] = field.get_bound_field(self, name)
+                                     ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\forms\fields.py", line 254, in get_bound_field
+    return BoundField(form, self, field_name)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\forms\boundfield.py", line 27, in __init__
+    self.help_text = field.help_text or ""
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\utils\functional.py", line 187, in __wrapper__
+    result = func(*self._args, **self._kw)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 89, in _password_validators_help_text_html
+    help_texts = password_validators_help_texts(password_validators)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 78, in password_validators_help_texts
+    password_validators = get_default_password_validators()
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 22, in get_default_password_validators
+    return get_password_validators(settings.AUTH_PASSWORD_VALIDATORS)
+  File "C:\Users\telmo\Envs\empresaLibrosEnv\Lib\site-packages\django\contrib\auth\password_validation.py", line 35, in get_password_validators
+    raise ImproperlyConfigured(msg % validator["NAME"])
+django.core.exceptions.ImproperlyConfigured: The module in NAME could not be imported: django.contrib.auth.password_validation.UserUniqueValidator. Check your AUTH_PASSWORD_VALIDATORS setting.
+"GET /admin/auth/user/add/ HTTP/1.1" 500 37399

@@ -75,16 +75,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+#i18
 LANGUAGES = [
     ('en', 'English'),
     ('es', 'Español'),
     ('fr', 'Français'),
 ]
-
+#i18
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),  
 ]
-
+#i18
+USE_I18N = True
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -160,26 +162,7 @@ DATABASES = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserUniqueValidator',  # Validación de unicidad en el nombre de usuario
-    },
-]
 
 
 
