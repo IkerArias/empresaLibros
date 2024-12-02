@@ -38,6 +38,23 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 
 X_FRAME_OPTIONS = 'SAMEORIGIN' #Security
 
+#Security
+SESSION_COOKIE_HTTPONLY = True  
+CSRF_COOKIE_HTTPONLY = True 
+SESSION_COOKIE_AGE = 3600  
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  
+SESSION_COOKIE_NAME = 'your_session_cookie_name'  
+SESSION_COOKIE_SAMESITE = 'Lax' 
+
+#Security
+SESSION_COOKIE_AGE = 3600  
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  
+
+#Security
+CSRF_COOKIE_HTTPONLY = True  
+CSRF_COOKIE_SAMESITE = 'Lax'  
+
+
 # Application definition
 
 INSTALLED_APPS = [
