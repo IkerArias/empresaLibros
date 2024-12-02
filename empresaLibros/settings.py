@@ -34,9 +34,15 @@ CACHES = {
     }
 }
 
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 60 * 15 
+CACHE_MIDDLEWARE_KEY_PREFIX = 'empresaLibros'
+
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 X_FRAME_OPTIONS = 'SAMEORIGIN' #Security
+SECURE_BROWSER_XSS_FILTER = True  #Security
+SECURE_CONTENT_TYPE_NOSNIFF = True #Security
 
 #Security
 SESSION_COOKIE_HTTPONLY = True  
@@ -45,6 +51,7 @@ SESSION_COOKIE_AGE = 3600
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False  
 SESSION_COOKIE_NAME = 'your_session_cookie_name'  
 SESSION_COOKIE_SAMESITE = 'Lax' 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 #Security
 SESSION_COOKIE_AGE = 3600  
@@ -53,6 +60,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 #Security
 CSRF_COOKIE_HTTPONLY = True  
 CSRF_COOKIE_SAMESITE = 'Lax'  
+
 
 
 # Application definition
@@ -66,6 +74,37 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('es', 'Español'),
+    ('fr', 'Français'),
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),  
+]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'error.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,7 +176,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserUniqueValidator',  # Validación de unicidad en el nombre de usuario
+    },
 ]
+
 
 
 # Internationalization
