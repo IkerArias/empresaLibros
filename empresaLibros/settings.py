@@ -26,15 +26,17 @@ SECRET_KEY = 'django-insecure-mha8far1am(l&8yu&aw4rs3^(9h=7y1+)g34!m!kqj$c^n)-f8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost'] #Security
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', #Optimization
     }
 }
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN' #Security
 
 # Application definition
 
@@ -50,14 +52,16 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.gzip.GZipMiddleware', 
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', #Security
+    'django.middleware.gzip.GZipMiddleware', #Optimization
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.http.ConditionalGetMiddleware',  
+    'django.middleware.http.ConditionalGetMiddleware',  #Optimization
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 
@@ -71,7 +75,7 @@ TEMPLATES = [
         'OPTIONS': {
             'loaders': [
                 ('django.template.loaders.cached.Loader', [
-                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.filesystem.Loader',#Optimization
                     'django.template.loaders.app_directories.Loader',
                 ]),
             ],
