@@ -9,7 +9,7 @@ class Editorial(models.Model):
     correo_electronico = models.EmailField(null=True, blank=True)
     foto = models.ImageField(upload_to='editoriales/', null=True, blank=True)
 
-    def __str__(self):
+    def __str__(self):#Personalización
         return self.nombre
 
 
@@ -22,7 +22,7 @@ class Autor(models.Model):
     genero_literario = models.CharField(max_length=100, null=True, blank=True)
     foto = models.ImageField(upload_to='autores/', blank=True, null=True)  # Campo de imagen
 
-    def __str__(self):
+    def __str__(self):#Personalización
         return self.nombre
 
 
@@ -46,5 +46,5 @@ class Libro(models.Model):
     # Añadir un campo de imagen para el libro
     foto = models.ImageField(upload_to='libros/', null=True, blank=True)
 
-    def __str__(self):
+    def __str__(self): #Personalización
         return self.nombre
