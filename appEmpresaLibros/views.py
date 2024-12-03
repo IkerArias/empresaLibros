@@ -15,19 +15,27 @@ def portada_view(request):
         recientes_por_editorial[editorial.nombre] = libro
     return render(request, 'portada.html', {'recientes_por_editorial': recientes_por_editorial})
 
-# Vista de la lista de libros
+from django.db.models import Q
+
 def libro_list_view(request):
-    # Optimizamos cargando editoriales relacionadas con los libros
+    
     libros = Libro.objects.select_related('editorial').prefetch_related('autores')
 
-    search_query = request.GET.get('search', '')  
+    search_query = request.GET.get('search', '') 
     if search_query:
-        libros = libros.filter(nombre__icontains=search_query)  
+        # Busca en el nombre, isbn, autor y editorial
+        libros = libros.filter(
+            Q(nombre__icontains=search_query) |  # Filtra por nombre
+            Q(isbn__icontains=search_query) |    # Filtra por ISBN
+            Q(autores__nombre__icontains=search_query) |  # Filtra por autor
+            Q(editorial__nombre__icontains=search_query)  # Filtra por editorial
+        ).distinct()  # Usamos distinct() para evitar resultados duplicados
 
     return render(request, 'libro_list.html', {
         'libros': libros,
         'search_query': search_query,  
     })
+
 
 # Vista de detalles de un libro
 def libro_detail_view(request, libro_id):
