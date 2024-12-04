@@ -1,6 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from .views import LibroCreateView
+from django.contrib import admin
 
 urlpatterns = [
     path('', views.portada_view, name='portada'),
@@ -12,4 +13,7 @@ urlpatterns = [
     path('autor/<int:autor_id>/', views.autor_detail_view, name='autor_detail'),
     path('libros/nuevo/', LibroCreateView.as_view(), name='libro_create'),
     path('crear-libro/', views.crear_libro_view, name='crear_libro'),
+    path('admin/', admin.site.urls),
+      
 ]
+

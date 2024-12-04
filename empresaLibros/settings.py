@@ -79,14 +79,14 @@ INSTALLED_APPS = [
 LANGUAGES = [
     ('en', 'English'),
     ('es', 'Español'),
-    ('fr', 'Français'),
+    
 ]
 #i18
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),  
 ]
 #i18
-USE_I18N = True
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -113,12 +113,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware', #Security
     'django.middleware.gzip.GZipMiddleware', #Optimization
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',  #Optimization
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
     
 ]
 
@@ -128,24 +130,26 @@ ROOT_URLCONF = 'empresaLibros.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  
-        'APP_DIRS': False,  
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': False,
         'OPTIONS': {
             'loaders': [
-                ('django.template.loaders.cached.Loader', [
-                    'django.template.loaders.filesystem.Loader',#Optimization
-                    'django.template.loaders.app_directories.Loader',
-                ]),
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
             ],
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',  # Necesario para el admin y la navegación
+                'django.contrib.auth.context_processors.auth',  # Necesario para el sistema de autenticación
+                'django.contrib.messages.context_processors.messages',  # Necesario para mostrar mensajes en el admin
             ],
         },
     },
 ]
+
+
+
+
 
 
 WSGI_APPLICATION = 'empresaLibros.wsgi.application'
@@ -169,7 +173,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 

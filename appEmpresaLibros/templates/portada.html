@@ -1,15 +1,32 @@
-
 {% extends "base.html" %}
+
+{% load i18n %}  <!-- Cargar el sistema de traducción -->
 
 {% block titulo %}Portada - Book Store{% endblock %}
 
 {% block contenido %}
-    <h2>Portada de Book Store</h2>
+    <!-- Selector de idioma -->
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <label for="language-selector">{% trans "Seleccionar idioma:" %}</label>
+        <select name="language" id="language-selector" onchange="this.form.submit()">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% for lang_code, lang_name in LANGUAGES %}
+                <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                    {{ lang_name }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+    
+
+    <!-- Contenido principal -->
+    <h2>{% trans "Portada de" %} Book Store</h2>
     <div class="editoriales">
         {% for nombre, libro in recientes_por_editorial.items %}
             <div class="editorial">
                 <h3>{{ nombre }}</h3>
-                <p>Libro más reciente: <strong>{{ libro.nombre }}</strong></p>
+                <p>{% trans "Libro más reciente:" %} <strong>{{ libro.nombre }}</strong></p>
                 {% if libro.foto %}
                     <img src="{{ libro.foto.url }}" alt="{{ libro.nombre }}" width="150">
                 {% endif %}
@@ -17,4 +34,3 @@
         {% endfor %}
     </div>
 {% endblock %}
-</html>
