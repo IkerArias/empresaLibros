@@ -20,11 +20,15 @@ msgstr ""
 "1 : 2;\n"
 
 
-#: templates/portada.html:7
+#: templates/portada.html:24
 msgid "Portada de"
 msgstr "Cover of"  
 
-#: templates/portada.html:12
-msgid "Libro más reciente:"
-msgstr "Most recent book:"
+#: templates/portada.html:7
+msgid Seleccionar idioma:
+msgstr "Select language" 
 
+
+#: templates/portada.html:29
+msgid "Libro más reciente:"
+msgstr "Most recent book:" 
