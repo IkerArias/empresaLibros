@@ -25,7 +25,7 @@ msgid "Portada de"
 msgstr "Cover of"  
 
 #: templates/portada.html:7
-msgid Seleccionar idioma:
+msgid "Seleccionar idioma:"
 msgstr "Select language" 
 
 
