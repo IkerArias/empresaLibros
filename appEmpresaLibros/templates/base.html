@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>{% block titulo %}Book Store{% endblock %}</title>
     <style>
-        /* Estilos en línea para centrado del título */
         html, body {
             height: 100%; 
             margin: 0;
@@ -35,12 +34,12 @@
 
         .home-link {
             text-decoration: none;
-            color: #FFD700; /* Amarillo */
+            color: #FFD700;
             transition: color 0.3s;
         }
 
         .home-link:hover {
-            color: #fff; /* Cambia a blanco al pasar el ratón */
+            color: #fff;
         }
 
         .navbar {
@@ -72,6 +71,12 @@
             padding: 20px;
             background: #fff;
             flex-grow: 1; 
+        }
+
+        #resize-message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
         }
 
         .footer {
@@ -106,6 +111,10 @@
         <div class="container">
             {% block contenido %}{% endblock %}
         </div>
+        <!-- Contenedor para mostrar mensajes de tamaño -->
+        <div id="resize-message">
+            Estás en pantalla grande 📺
+        </div>
     </main>
     <footer class="footer">
         <div class="container">
@@ -119,5 +128,27 @@
             </a>
         </p>
     </footer>
+
+    <!-- JavaScript para detectar cambios de tamaño -->
+    <script>
+        window.addEventListener('resize', () => {
+            const ancho = window.innerWidth;
+            const mensajeContainer = document.getElementById('resize-message');
+
+            // Actualiza el mensaje según el tamaño de la ventana
+            if (mensajeContainer) {
+                if (ancho > 1200) {
+                    mensajeContainer.textContent = "Pantalla grande 📺";
+                } else if (ancho > 768) {
+                    mensajeContainer.textContent = "Pantalla mediana 🖥️";
+                } else {
+                    mensajeContainer.textContent = "Pantalla pequeña 📱";
+                }
+            }
+        });
+
+        // Ejecutar al cargar para mostrar el mensaje inicial
+        window.dispatchEvent(new Event('resize'));
+    </script>
 </body>
 </html>
