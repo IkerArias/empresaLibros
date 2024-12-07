@@ -204,6 +204,32 @@
             color: #fff;
             font-size: 0.9rem;
         }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .language-selector select {
+            background-color: #fff;
+            color: #273849;
+            font-size: 1rem;
+            padding: 5px;
+            border: 2px solid #FFD700;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .language-selector select:focus {
+            border-color: #FFD700;
+            outline: none;
+        }
+
+
+        
+
     </style>
 </head>
 <body>
@@ -225,14 +251,19 @@
             </form>
         </div>
         <!-- Selector de idioma -->
-        <form action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
-            <select name="language" onchange="this.form.submit()">
-                <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>{% trans "Español" %}</option>
-                <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "Inglés" %}</option>
-                <option value="it" {% if LANGUAGE_CODE == 'it' %}selected{% endif %}>{% trans "Italiano" %}</option>
-            </select>
-        </form>
+        <div class="language-selector">
+            <label for="language-select" style="color: #fff; font-size: 1.1rem; margin-right: 10px;">
+                {% trans "Selecciona Idioma" %}
+            </label>
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <select name="language" id="language-select" onchange="this.form.submit()" style="font-size: 1rem; padding: 5px; border: none; cursor: pointer;">
+                    <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>{% trans "Español" %}</option>
+                    <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "Inglés" %}</option>
+                    <option value="it" {% if LANGUAGE_CODE == 'it' %}selected{% endif %}>{% trans "Italiano" %}</option>
+                </select>
+            </form>
+        </div>
 
         <!-- Botón para alternar temas -->
         <button id="toggle-theme" class="theme-button">{% trans "Cambiar Tema" %}</button>
@@ -257,6 +288,19 @@
         const themeButton = document.getElementById('toggle-theme');
         const body = document.body;
         const mensajeContainer = document.getElementById('resize-message');
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const languageSelector = document.querySelector('select[name="language"]');
+    const savedLanguage = localStorage.getItem('language');
+
+    if (savedLanguage) {
+        languageSelector.value = savedLanguage;
+    }
+
+    languageSelector.addEventListener('change', function () {
+        localStorage.setItem('language', this.value);
+    });
+});
 
             // Lista de temas disponibles
     const themes = ['light-mode', 'sepia-mode', 'forest-mode', 'ocean-mode', 'sunset-mode'];
@@ -315,6 +359,9 @@
         // Cargar el tema al iniciar
         loadTheme();
         themeButton.addEventListener('click', toggleTheme);
+
+
+
     </script>
 </body>
 </html>
