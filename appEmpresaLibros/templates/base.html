@@ -8,14 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>{% block titulo %}Book Store{% endblock %}</title>
     <style>
+        /* Estilos generales */
         html, body {
-            height: 100%; 
+            height: 100%;
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Tema claro (por defecto) */
+        body.light-mode {
+            background-color: #f5f5f5;
+            color: #000000;
+        }
+
+        /* Tema oscuro */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
         }
 
         .header {
@@ -67,10 +80,46 @@
             color: #fff;
         }
 
+        .search-bar-container {
+            margin-top: 10px;
+        }
+
+        .search-bar-container input {
+            padding: 5px;
+            font-size: 1rem;
+        }
+
+        .search-bar-container button {
+            padding: 5px 10px;
+            font-size: 1rem;
+            background-color: #FFD700;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-bar-container button:hover {
+            background-color: #fff;
+            color: #273849;
+        }
+
+        .theme-button {
+            background-color: #FFD700;
+            color: #273849;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .theme-button:hover {
+            background-color: #fff;
+            color: #273849;
+        }
+
         .main-content {
             padding: 20px;
-            background: #fff;
-            flex-grow: 1; 
+            flex-grow: 1;
         }
 
         #resize-message {
@@ -106,7 +155,9 @@
                 <button type="submit">Buscar</button>
             </form>
         </div>
-    </header>    
+        <!-- Botón para alternar temas -->
+        <button id="toggle-theme" class="theme-button">Cambiar Tema</button>
+    </header>
     <main class="main-content">
         <div class="container">
             {% block contenido %}{% endblock %}
@@ -120,35 +171,58 @@
         <div class="container">
             <p>&copy; 2024 Tienda de Libros | Diseñado con esfuerzo</p>
         </div>
-        <p>
-            <a href="http://jigsaw.w3.org/css-validator/check/referer">
-                <img style="border:0;width:88px;height:31px"
-                    src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-                    alt="¡CSS Válido!" />
-            </a>
-        </p>
     </footer>
 
-    <!-- JavaScript para detectar cambios de tamaño -->
+    <!-- JavaScript para alternar temas y detectar cambios de tamaño -->
     <script>
+        // Selección de elementos
+        const themeButton = document.getElementById('toggle-theme');
+        const body = document.body;
+        const mensajeContainer = document.getElementById('resize-message');
+
+        // Cargar tema guardado en localStorage
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+            } else {
+                body.classList.add('light-mode'); // Tema por defecto
+            }
+        }
+
+        // Alternar entre temas
+        function toggleTheme() {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            }
+        }
+
+        // Detectar cambios de tamaño
         window.addEventListener('resize', () => {
             const ancho = window.innerWidth;
-            const mensajeContainer = document.getElementById('resize-message');
 
             // Actualiza el mensaje según el tamaño de la ventana
-            if (mensajeContainer) {
-                if (ancho > 1200) {
-                    mensajeContainer.textContent = "Pantalla grande 📺";
-                } else if (ancho > 768) {
-                    mensajeContainer.textContent = "Pantalla mediana 🖥️";
-                } else {
-                    mensajeContainer.textContent = "Pantalla pequeña 📱";
-                }
+            if (ancho > 1200) {
+                mensajeContainer.textContent = "Pantalla grande 📺";
+            } else if (ancho > 768) {
+                mensajeContainer.textContent = "Pantalla mediana 🖥️";
+            } else {
+                mensajeContainer.textContent = "Pantalla pequeña 📱";
             }
         });
 
         // Ejecutar al cargar para mostrar el mensaje inicial
         window.dispatchEvent(new Event('resize'));
+
+        
+        loadTheme();
+        themeButton.addEventListener('click', toggleTheme);
     </script>
 </body>
 </html>
