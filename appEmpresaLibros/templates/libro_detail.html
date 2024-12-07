@@ -1,12 +1,10 @@
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    <title>Detalles del Libro - {{ libro.nombre }}</title>
-</head>
-<body>
+{% load i18n %}
+
+{% block titulo %}{% trans "Detalles del Libro" %} - {{ libro.nombre }}{% endblock %}
+
+{% block contenido %}
     <div class="book-detail-container">
         <div class="book-header">
             <h2>{{ libro.nombre }}</h2>
@@ -16,12 +14,12 @@
         </div>
 
         <div class="book-info">
-            <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
-            <p><strong>Año de lanzamiento:</strong> {{ libro.año_lanzamiento }}</p>
-            <p><strong>Editorial:</strong>
+            <p><strong>{% trans "ISBN" %}:</strong> {{ libro.isbn }}</p>
+            <p><strong>{% trans "Año de lanzamiento" %}:</strong> {{ libro.año_lanzamiento }}</p>
+            <p><strong>{% trans "Editorial" %}:</strong>
                 <a href="{% url 'editorial_detail' libro.editorial.id %}" class="editorial-link">{{ libro.editorial.nombre }}</a>
             </p>
-            <p><strong>Autores:</strong></p>
+            <p><strong>{% trans "Autores" %}:</strong></p>
             <ul class="author-list">
                 {% for autor in libro.autores.all %}
                     <li>
@@ -31,5 +29,4 @@
             </ul>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

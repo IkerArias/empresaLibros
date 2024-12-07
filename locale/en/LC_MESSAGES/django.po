@@ -6,148 +6,141 @@ msgstr ""
 
 # translations for Book Store
 msgid "Tienda de Libros"
-msgstr "Tienda de Libros"
+msgstr "Book Store"
 
 msgid "Libros"
-msgstr "Libros"
+msgstr "Books"
 
 msgid "Editoriales"
-msgstr "Editoriales"
+msgstr "Publishers"
 
 msgid "Autores"
-msgstr "Autores"
+msgstr "Authors"
 
 msgid "Buscar libros..."
-msgstr "Buscar libros..."
+msgstr "Search books..."
 
 msgid "Buscar"
-msgstr "Buscar"
+msgstr "Search"
 
 msgid "Cambiar Tema"
-msgstr "Cambiar Tema"
+msgstr "Change Theme"
 
 msgid "Pantalla grande 📺"
-msgstr "Pantalla grande 📺"
+msgstr "Large screen 📺"
 
 msgid "Pantalla mediana 🖥️"
-msgstr "Pantalla mediana 🖥️"
+msgstr "Medium screen 🖥️"
 
 msgid "Pantalla pequeña 📱"
-msgstr "Pantalla pequeña 📱"
+msgstr "Small screen 📱"
 
 msgid "Diseñado con esfuerzo"
-msgstr "Diseñado con esfuerzo"
+msgstr "Designed with effort"
 
 # translations for Home Page
 msgid "Portada de"
-msgstr "Portada de"
+msgstr "Home of"
 
 msgid "Libro más reciente:"
-msgstr "Libro más reciente:"
+msgstr "Most recent book:"
 
 # translations for Book List Page
 msgid "Lista de Libros"
-msgstr "Lista de Libros"
+msgstr "Book List"
 
 msgid "Resultados de búsqueda para:"
-msgstr "Resultados de búsqueda para:"
+msgstr "Search results for:"
 
 msgid "No se encontraron libros que coincidan con tu búsqueda."
-msgstr "No se encontraron libros que coincidan con tu búsqueda."
+msgstr "No books matching your search were found."
 
+msgid "ISBN:"
+msgstr "ISBN:"
 
 msgid "Añadir Nuevo Libro"
-msgstr "Añadir Nuevo Libro"
+msgstr "Add New Book"
 
 msgid "Guardar"
-msgstr "Guardar"
+msgstr "Save"
 
 msgid "Detalles del Libro"
-msgstr "Detalles del Libro"
+msgstr "Book Details"
 
 msgid "Año de lanzamiento:"
-msgstr "Año de lanzamiento:"
+msgstr "Release Year:"
 
 msgid "Editorial"
-msgstr "Editorial"
+msgstr "Publisher"
 
 msgid "Añadir Libro"
-msgstr "Añadir Libro"
+msgstr "Add Book"
+
+msgid "Libro"
+msgstr "Book"
 
 # translations for Editorial List Page
 msgid "Lista de Editoriales"
-msgstr "Lista de Editoriales"
+msgstr "Publisher List"
 
 msgid "Logo"
 msgstr "Logo"
 
 msgid "Nombre"
-msgstr "Nombre"
+msgstr "Name"
 
 msgid "País:"
-msgstr "País:"
+msgstr "Country:"
 
 msgid "No se encontraron editoriales."
-msgstr "No se encontraron editoriales."
+msgstr "No publishers found."
 
 # translations for Editorial Detail Page
 msgid "Detalles de la Editorial"
-msgstr "Detalles de la Editorial"
+msgstr "Publisher Details"
 
 msgid "Año de creación:"
-msgstr "Año de creación:"
+msgstr "Year of Creation:"
 
+msgid "Libros publicados:"
+msgstr "Published Books:"
 
 # translations for Create Book Page
 msgid "Crear un Nuevo Libro"
-msgstr "Crear un Nuevo Libro"
+msgstr "Create a New Book"
 
 msgid "Nombre del Libro:"
-msgstr "Nombre del Libro:"
-
-msgid "ISBN:"
-msgstr "ISBN:"
-
-msgid "Año de Lanzamiento:"
-msgstr "Año de Lanzamiento:"
+msgstr "Book Name:"
 
 msgid "Portada:"
-msgstr "Portada:"
-
-msgid "Editorial:"
-msgstr "Editorial:"
-
-msgid "Autores:"
-msgstr "Autores:"
+msgstr "Cover:"
 
 msgid "Crear Libro"
-msgstr "Crear Libro"
+msgstr "Create Book"
 
 # translations for Author List Page
 msgid "Lista de Autores"
-msgstr "Lista de Autores"
+msgstr "Author List"
 
 msgid "Foto"
-msgstr "Foto"
+msgstr "Photo"
 
 msgid "No se encontraron autores."
-msgstr "No se encontraron autores."
+msgstr "No authors found."
 
 # translations for Author Detail Page
 msgid "Detalles del Autor"
-msgstr "Detalles del Autor"
+msgstr "Author Details"
 
 msgid "Género literario:"
-msgstr "Género literario:"
-
-msgid "Libros publicados:"
-msgstr "Libros publicados:"
+msgstr "Literary Genre:"
 
 msgid "Año de lanzamiento"
-msgstr "Año de lanzamiento" 
+msgstr "Launch year" 
 
 msgid "Año de creación"
-msgstr "Año de creación" 
+msgstr "Creation year" 
 
 msgid "Género literario"
-msgstr "Género literario" 
+msgstr "Literary genre" 
+

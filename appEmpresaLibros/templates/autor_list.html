@@ -1,9 +1,12 @@
 {% extends "base.html" %}
-{% block titulo %}Lista de Autores - Book Store{% endblock %}
+
+{% load i18n %}
+
+{% block titulo %}{% trans "Lista de Autores" %} - {% trans "Book Store" %}{% endblock %}
 
 {% block contenido %}
     <div class="author-list-container">
-        <h2>Lista de Autores</h2>
+        <h2>{% trans "Lista de Autores" %}</h2>
         <div class="author-grid">
             {% for autor in autores %}
                 <div class="author-card">

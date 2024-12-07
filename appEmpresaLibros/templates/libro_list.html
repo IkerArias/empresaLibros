@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
-{% block titulo %}Lista de Libros - Book Store{% endblock %}
+{% load i18n %}
+
+{% block titulo %}{% trans "Lista de Libros - Book Store" %}{% endblock %}
 
 {% block contenido %}
     <div class="book-list-container">
-        <h2>Lista de Libros</h2>
+        <h2>{% trans "Lista de Libros" %}</h2>
 
         <!-- Mostrar mensaje de búsqueda si existe -->
         {% if search_query %}
-            <p>Resultados de búsqueda para: <strong>{{ search_query }}</strong></p>
+            <p>{% trans "Resultados de búsqueda para:" %} <strong>{{ search_query }}</strong></p>
         {% endif %}
 
         <!-- Mostrar los libros filtrados -->
@@ -30,7 +32,7 @@
                     </h3>
 
                     <!-- ISBN -->
-                    <p class="book-isbn">ISBN: {{ libro.isbn }}</p>
+                    <p class="book-isbn">{% trans "ISBN:" %} {{ libro.isbn }}</p>
 
                     <!-- Autores -->
                     <ul class="authors-list">
@@ -44,7 +46,7 @@
                     </ul>
                 </div>
             {% empty %}
-                <p>No se encontraron libros que coincidan con tu búsqueda.</p>
+                <p>{% trans "No se encontraron libros que coincidan con tu búsqueda." %}</p>
             {% endfor %}
         </div>
     </div>

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
-{% block titulo %}Detalles del Autor - {{ autor.nombre }}{% endblock %}
+{% load i18n %}
+
+{% block titulo %}{% trans "Detalles del Autor" %} - {{ autor.nombre }}{% endblock %}
 
 {% block contenido %}
     <div class="author-detail-container">
@@ -12,10 +14,10 @@
         </div>
         
         <div class="author-info">
-            <p><strong>País:</strong> {{ autor.pais }}</p>
-            <p><strong>Género literario:</strong> {{ autor.genero_literario }}</p>
+            <p><strong>{% trans "País:" %}</strong> {{ autor.pais }}</p>
+            <p><strong>{% trans "Género literario:" %}</strong> {{ autor.genero_literario }}</p>
             
-            <h3>Libros publicados:</h3>
+            <h3>{% trans "Libros publicados:" %}</h3>
             <ul class="book-list">
                 {% for libro in autor.libros.all %}
                     <li>

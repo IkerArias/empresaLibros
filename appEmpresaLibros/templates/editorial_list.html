@@ -1,17 +1,18 @@
-
 {% extends "base.html" %}
 
-{% block titulo %}Lista de Editoriales - Book Store{% endblock %}
+{% load i18n %}
+
+{% block titulo %}{% trans "Lista de Editoriales" %} - {% trans "Book Store" %}{% endblock %}
 
 {% block contenido %}
     <div class="editorial-list-container">
-        <h2>Lista de Editoriales</h2>
+        <h2>{% trans "Lista de Editoriales" %}</h2>
         <table class="editorial-table">
             <thead>
                 <tr>
-                    <th>Logo</th>
-                    <th>Nombre</th>
-                    <th>País</th>
+                    <th>{% trans "Logo" %}</th>
+                    <th>{% trans "Nombre" %}</th>
+                    <th>{% trans "País" %}</th>
                 </tr>
             </thead>
             <tbody>
