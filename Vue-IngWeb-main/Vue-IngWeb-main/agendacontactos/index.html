@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contactos</title>
+
+    <!-- Cargar Bootstrap desde CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Cargar Font Awesome desde CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Cargar Vue desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+</head>
+<body>
+
+    <div id="app" class="container mt-5">
+        <h1 class="text-center">Agenda de Contactos</h1>
+
+        <!-- Sección para mostrar los contactos -->
+        <section id="contactos">
+            <h2>Contactos</h2>
+            <div v-if="contactos.length > 0">
+                <div class="row mb-3">
+                    <div class="col-4"><strong>Nombre</strong></div>
+                    <div class="col-4"><strong>Email</strong></div>
+                    <div class="col-3"><strong>Teléfono</strong></div>
+                    <div class="col-1"></div>
+                </div>
+
+                <div class="row mb-3" v-for="(contacto, index) in contactos" :key="index">
+                    <div class="col-4">{{ contacto.nombre }}</div>
+                    <div class="col-4">{{ contacto.email }}</div>
+                    <div class="col-3">{{ contacto.telefono }}</div>
+                    <div class="col-1">
+                        <button class="btn btn-danger btn-sm" @click="borrarContacto(index)">
+                            Borrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div v-else>
+                <p>No hay contactos registrados.</p>
+            </div>
+        </section>
+
+        <!-- Sección para agregar un nuevo contacto -->
+        <section id="nuevo-contacto" class="mt-5">
+            <h2>Añadir Nuevo Contacto</h2>
+            <form @submit.prevent="agregarContacto">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" v-model="nuevoContacto.nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" v-model="nuevoContacto.email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" class="form-control" id="telefono" v-model="nuevoContacto.telefono" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Añadir Contacto</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Cargar archivo JavaScript desde CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Cargar Vue.js y tu lógica -->
+    <script src="script.js"></script>
+
+</body>
+</html>
